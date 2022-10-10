@@ -1,0 +1,22 @@
+[
+	{
+		"id": 1,
+		"name": "describe",
+		"slug": "describe"
+	},
+	{
+		"id": 2,
+		"name": "draw",
+		"slug": "draw"
+	},
+	{
+		"id": 3,
+		"name": "mime",
+		"slug": "mime"
+	},
+	{
+		"id": 4,
+		"name": "sing",
+		"slug": "sing"
+	}
+]

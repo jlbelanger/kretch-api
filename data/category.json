@@ -1,0 +1,98 @@
+[
+	{
+		"id": 1,
+		"name": "meme",
+		"slug": "meme",
+		"plural": "Memes",
+		"pre": {
+			"describe": "Describe",
+			"draw": "Draw a picture of",
+			"mime": "Mime",
+			"sing": "Sing a song about"
+		},
+		"post": {
+			"describe": "",
+			"draw": "",
+			"mime": "",
+			"sing": "make up a song with that title"
+		}
+	},
+	{
+		"id": 2,
+		"name": "movie",
+		"slug": "movie",
+		"plural": "Movies",
+		"minYear": 1929,
+		"maxYear": 2021,
+		"pre": {
+			"describe": "Describe the plot of",
+			"draw": "Draw a picture of",
+			"mime": "Mime a scene from",
+			"sing": "Sing a song from"
+		},
+		"post": {
+			"describe": "make up a plot for a movie with that title",
+			"draw": "",
+			"mime": "mime the title",
+			"sing": "make up a song that might belong in that movie"
+		}
+	},
+	{
+		"id": 3,
+		"name": "person",
+		"slug": "person",
+		"plural": "People",
+		"pre": {
+			"describe": "Describe",
+			"draw": "Draw a picture of",
+			"mime": "Do an impression of",
+			"sing": "Sing a song about"
+		},
+		"post": {
+			"describe": "",
+			"draw": "",
+			"mime": "",
+			"sing": "make up a song with that title"
+		}
+	},
+	{
+		"id": 4,
+		"name": "song",
+		"slug": "song",
+		"plural": "Songs",
+		"minYear": 1958,
+		"maxYear": 2021,
+		"pre": {
+			"describe": "Describe",
+			"draw": "Draw a picture of",
+			"mime": "Mime",
+			"sing": "Sing or hum"
+		},
+		"post": {
+			"describe": "",
+			"draw": "",
+			"mime": "",
+			"sing": "make up a song with that title"
+		}
+	},
+	{
+		"id": 5,
+		"name": "TV show",
+		"slug": "tv-show",
+		"plural": "TV",
+		"minYear": 1949,
+		"maxYear": 2021,
+		"pre": {
+			"describe": "Describe the plot of",
+			"draw": "Draw a picture of",
+			"mime": "Mime a scene from",
+			"sing": "Sing the theme from"
+		},
+		"post": {
+			"describe": "make up a plot for a show with that title",
+			"draw": "",
+			"mime": "mime the title",
+			"sing": "make up a theme song for that show"
+		}
+	}
+]

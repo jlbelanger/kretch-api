@@ -1,0 +1,32 @@
+{
+	"name": "@jlbelanger/kretch-api",
+	"version": "1.0.0",
+	"description": "Multi-player movie/TV/song/people/meme guessing game.",
+	"license": "GPL-3.0-only",
+	"author": {
+		"name": "Jenny Belanger",
+		"email": "mail@jennybelanger.com",
+		"url": "https://www.jennybelanger.com/"
+	},
+	"main": "start.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jlbelanger/kretch-api.git"
+	},
+	"scripts": {
+		"start": "node start.js",
+		"lint": "yarn lint:js",
+		"lint:js": "node_modules/.bin/eslint . --ext .js"
+	},
+	"dependencies": {
+		"dotenv": "10.0.0",
+		"express": "^4.17.2",
+		"socket.io": "^4.5.2",
+		"uuid": "^8.3.2"
+	},
+	"devDependencies": {
+		"eslint": "^8.5.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.25.3"
+	}
+}
