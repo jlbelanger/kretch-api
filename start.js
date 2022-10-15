@@ -185,7 +185,7 @@ io.on('connection', (socket) => {
 			myData.clues,
 			input.categorySlug,
 			room.usedClueIds,
-			player.settings,
+			player.settings
 		);
 		if (!currentClue) {
 			io.to(room.id).emit('ERROR_NO_CLUES');
