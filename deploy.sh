@@ -13,3 +13,4 @@ check_git_changes
 deploy_git
 deploy_env
 deploy_node
+printf "\e[0;32mDone.\n\e[0m"
