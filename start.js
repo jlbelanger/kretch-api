@@ -27,7 +27,7 @@ const myData = {
 const app = express();
 
 app.get('/', (_req, res) => {
-	res.send('<code>The streetcar is going up the hill.</code>');
+	res.send({ success: true });
 });
 
 app.use(express.static(`${__dirname}/public`));
