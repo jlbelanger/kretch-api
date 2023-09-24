@@ -1,6 +1,6 @@
 # Kretch API
 
-View the app at https://kretch.jennybelanger.com/
+Kretch is a multi-player movie/TV/song/people/meme guessing game. [View the site](https://kretch.jennybelanger.com/).
 
 ## Development
 
