@@ -1,6 +1,8 @@
-class Method {
+import data from '../data/method.json' with { type: 'json' };
+
+export default class Method {
 	static fetch() {
-		return require('../data/method.json');
+		return data;
 	}
 
 	static get(id) {
@@ -20,5 +22,3 @@ class Method {
 		return filteredRows[index];
 	}
 }
-
-module.exports = Method;

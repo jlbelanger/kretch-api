@@ -1,6 +1,8 @@
-class Category {
+import data from '../data/category.json' with { type: 'json' };
+
+export default class Category {
 	static fetch() {
-		return require('../data/category.json');
+		return data;
 	}
 
 	static get(id) {
@@ -17,5 +19,3 @@ class Category {
 		return rows.findIndex((row) => (row[attribute] === value));
 	}
 }
-
-module.exports = Category;

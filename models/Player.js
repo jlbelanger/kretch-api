@@ -1,6 +1,6 @@
-const uuid = require('uuid');
+import { v4 as uuidv4 } from 'uuid'; // eslint-disable-line import/no-unresolved
 
-class Player {
+export default class Player {
 	static create(name, categories, methods) {
 		const maxYear = {};
 		const minYear = {};
@@ -11,7 +11,7 @@ class Player {
 		});
 
 		return {
-			id: uuid.v4(),
+			id: uuidv4(),
 			name,
 			settings: {
 				categories: categories.map((category) => (category.slug)),
@@ -26,5 +26,3 @@ class Player {
 		return rows.findIndex((row) => (row[attribute] === value));
 	}
 }
-
-module.exports = Player;

@@ -1,13 +1,12 @@
-const dotenv = require('dotenv');
-const express = require('express');
-const socketIo = require('socket.io');
-const Category = require('./models/Category');
-const Clue = require('./models/Clue');
-const Method = require('./models/Method');
-const Player = require('./models/Player');
-const Room = require('./models/Room');
+import Category from './models/Category.js';
+import Clue from './models/Clue.js';
+import express from 'express';
+import Method from './models/Method.js';
+import Player from './models/Player.js';
+import Room from './models/Room.js';
+import { Server } from 'socket.io';
 
-dotenv.config();
+process.loadEnvFile();
 
 const clueData = Clue.get();
 const categoryData = Category.get();
@@ -30,14 +29,14 @@ app.get('/', (_req, res) => {
 	res.send({ success: true });
 });
 
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${process.cwd()}/public`));
 
 const server = app.listen(process.env.KRETCH_API_PORT);
 server.on('listening', () => {
 	console.log(`Listening on ${process.env.KRETCH_API_PORT}`); // eslint-disable-line no-console
 });
 
-const io = socketIo(server, {
+const io = new Server(server, {
 	cors: {
 		origin: process.env.KRETCH_APP_URL,
 		methods: ['GET', 'POST'],
@@ -46,7 +45,7 @@ const io = socketIo(server, {
 
 io.on('connection', (socket) => {
 	socket.on('disconnect', () => {
-		if (Object.prototype.hasOwnProperty.call(myData.sockets, socket.id)) {
+		if (Object.hasOwn(myData.sockets, socket.id)) {
 			removePlayerFromRoom(socket, myData.sockets[socket.id].roomId, myData.sockets[socket.id].playerId);
 		}
 	});
@@ -233,7 +232,7 @@ io.on('connection', (socket) => {
 		myData.rooms[roomIndex].usedClueIds.push(clue.id);
 
 		// Increment the number of used clues in this category.
-		if (!Object.prototype.hasOwnProperty.call(myData.rooms[roomIndex].categoryCount, clue.categorySlug)) {
+		if (!Object.hasOwn(myData.rooms[roomIndex].categoryCount, clue.categorySlug)) {
 			myData.rooms[roomIndex].categoryCount[clue.categorySlug] = 0;
 		}
 		myData.rooms[roomIndex].categoryCount[clue.categorySlug] += 1;
@@ -355,15 +354,13 @@ function removePlayerFromRoom(socket, roomId, playerId, roomIndex = null) {
 	const numPlayers = myData.rooms[roomIndex].players.length;
 	myData.rooms[roomIndex].players.splice(playerIndex, 1);
 	const currentPlayerIndex = myData.rooms[roomIndex].currentPlayerIndex;
-	if (currentPlayerIndex < playerIndex) {
-		// 0 1 [2] 3 and 3 leaves: do nothing.
-	} else if (currentPlayerIndex === playerIndex) {
+	// If currentPlayerIndex < playerIndex: 0 1 [2] 3 and 3 leaves: do nothing.
+	if (currentPlayerIndex === playerIndex) {
 		if (playerIndex === (numPlayers - 1)) {
 			// 0 1 [2] and 2 leaves: go to the first player.
 			myData.rooms[roomIndex].currentPlayerIndex = 0;
-		} else {
-			// 0 1 [2] 3 and 2 leaves: do nothing.
-		}
+		} // Otherwise, 0 1 [2] 3 and 2 leaves: do nothing.
+
 		if (myData.rooms[roomIndex].step) {
 			myData.rooms[roomIndex].step = 1;
 		}

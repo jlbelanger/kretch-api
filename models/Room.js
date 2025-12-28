@@ -1,6 +1,6 @@
-const uuid = require('uuid');
+import { v4 as uuidv4 } from 'uuid'; // eslint-disable-line import/no-unresolved
 
-class Room {
+export default class Room {
 	static create(rooms, categories) {
 		const categoryCount = {};
 		let i;
@@ -10,7 +10,7 @@ class Room {
 		}
 
 		return {
-			id: uuid.v4(),
+			id: uuidv4(),
 			code: this.generateCode(rooms),
 			players: [],
 			usedClueIds: [],
@@ -55,5 +55,3 @@ class Room {
 		return code;
 	}
 }
-
-module.exports = Room;
