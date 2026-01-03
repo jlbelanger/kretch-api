@@ -1,13 +1,13 @@
 FROM node:12.14.0-alpine
 
 # Instal global packages.
-RUN yarn global add nodemon
+RUN npm install --global nodemon
 
 # Install application packages.
 WORKDIR /usr/src/app
 COPY package.json .
-COPY yarn.lock .
-RUN yarn install
+COPY package-lock.json .
+RUN npm install
 COPY .env .
 
 # Run Node.

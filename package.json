@@ -16,8 +16,8 @@
 	},
 	"scripts": {
 		"start": "node start.js",
-		"lint": "yarn lint:js",
-		"lint:js": "node_modules/.bin/eslint ."
+		"lint": "npm run lint:js",
+		"lint:js": "npx eslint ."
 	},
 	"dependencies": {
 		"express": "^5.2.1",

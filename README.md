@@ -7,7 +7,7 @@ Kretch is a multi-player movie/TV/song/people/meme guessing game. [View the site
 ### Requirements
 
 - [Git](https://git-scm.com/)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install)
+- [Node](https://nodejs.org/)
 
 ### Setup
 
@@ -15,8 +15,8 @@ Kretch is a multi-player movie/TV/song/people/meme guessing game. [View the site
 git clone https://github.com/jlbelanger/kretch-api.git
 cd kretch-api
 cp .env.example .env
-yarn install
-yarn global add pm2@4.4.0
+npm install
+npm install --global pm2@4.4.0
 pm2-dev start start.js
 ```
 
@@ -25,7 +25,7 @@ Then, setup the [Kretch app](https://github.com/jlbelanger/kretch-app).
 ### Lint
 
 ``` bash
-yarn lint
+npm run lint
 ```
 
 ## Deployment
@@ -37,8 +37,8 @@ git clone https://github.com/jlbelanger/kretch-api.git
 cd kretch-api
 cp .env.example .env
 # Then configure the values in .env.
-yarn install
-yarn global add pm2@4.4.0
+npm install
+npm install --global pm2@4.4.0
 pm2 start start.js --name kretch-api
 ```
 
@@ -48,7 +48,7 @@ For subsequent deploys, push changes to the main branch, then run the following 
 cd kretch-api
 git fetch origin
 git pull
-yarn install
+npm install
 pm2 restart kretch-api
 ```
 
