@@ -14,8 +14,8 @@ export default class Player {
 			id: uuidv4(),
 			name,
 			settings: {
-				categories: categories.map((category) => (category.slug)),
-				methods: methods.map((method) => (method.slug)),
+				categories: categories.map((category) => category.slug),
+				methods: methods.map((method) => method.slug),
 				maxYear,
 				minYear,
 			},
@@ -23,6 +23,6 @@ export default class Player {
 	}
 
 	static find(rows, value, attribute) {
-		return rows.findIndex((row) => (row[attribute] === value));
+		return rows.findIndex((row) => row[attribute] === value);
 	}
 }

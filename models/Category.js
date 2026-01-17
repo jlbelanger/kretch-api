@@ -11,11 +11,11 @@ export default class Category {
 			return { rows };
 		}
 
-		const index = rows.findIndex((row) => (row.id === id));
+		const index = rows.findIndex((row) => row.id === id);
 		return index > -1 ? rows[index] : null;
 	}
 
 	static find(rows, value, attribute) {
-		return rows.findIndex((row) => (row[attribute] === value));
+		return rows.findIndex((row) => row[attribute] === value);
 	}
 }

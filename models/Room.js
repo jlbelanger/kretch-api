@@ -30,7 +30,7 @@ export default class Room {
 	}
 
 	static find(rows, value, attribute) {
-		return rows.findIndex((row) => (row[attribute] === value));
+		return rows.findIndex((row) => row[attribute] === value);
 	}
 
 	static generateCode(rows) {

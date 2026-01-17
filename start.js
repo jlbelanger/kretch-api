@@ -180,12 +180,7 @@ io.on('connection', (socket) => {
 		// Generate a random clue for the current player.
 		const room = myData.rooms[roomIndex];
 		const player = room.players[room.currentPlayerIndex];
-		const currentClue = Clue.random(
-			myData.clues,
-			input.categorySlug,
-			room.usedClueIds,
-			player.settings
-		);
+		const currentClue = Clue.random(myData.clues, input.categorySlug, room.usedClueIds, player.settings);
 		if (!currentClue) {
 			io.to(room.id).emit('ERROR_NO_CLUES');
 			return;
@@ -225,7 +220,7 @@ io.on('connection', (socket) => {
 		myData.rooms[roomIndex].step = 3;
 
 		// Set the timer deadline.
-		myData.rooms[roomIndex].deadline = new Date().getTime() + (myData.rooms[roomIndex].settings.maxMinutes * 60000);
+		myData.rooms[roomIndex].deadline = new Date().getTime() + (myData.rooms[roomIndex].settings.maxMinutes * 60000); // prettier-ignore
 
 		// Add the clue to the pool of used clues for the room.
 		const clue = myData.rooms[roomIndex].currentClue;
@@ -356,7 +351,7 @@ function removePlayerFromRoom(socket, roomId, playerId, roomIndex = null) {
 	const currentPlayerIndex = myData.rooms[roomIndex].currentPlayerIndex;
 	// If currentPlayerIndex < playerIndex: 0 1 [2] 3 and 3 leaves: do nothing.
 	if (currentPlayerIndex === playerIndex) {
-		if (playerIndex === (numPlayers - 1)) {
+		if (playerIndex === numPlayers - 1) {
 			// 0 1 [2] and 2 leaves: go to the first player.
 			myData.rooms[roomIndex].currentPlayerIndex = 0;
 		} // Otherwise, 0 1 [2] 3 and 2 leaves: do nothing.

@@ -11,7 +11,7 @@ Kretch is a multi-player movie/TV/song/people/meme guessing game. [View the site
 
 ### Setup
 
-``` bash
+```bash
 git clone https://github.com/jlbelanger/kretch-api.git
 cd kretch-api
 cp .env.example .env
@@ -24,7 +24,7 @@ Then, setup the [Kretch app](https://github.com/jlbelanger/kretch-app).
 
 ### Lint
 
-``` bash
+```bash
 npm run lint
 ```
 
@@ -32,7 +32,7 @@ npm run lint
 
 Essentially, to set up the repo on the server:
 
-``` bash
+```bash
 git clone https://github.com/jlbelanger/kretch-api.git
 cd kretch-api
 cp .env.example .env
@@ -44,7 +44,7 @@ pm2 start start.js --name kretch-api
 
 For subsequent deploys, push changes to the main branch, then run the following on the server:
 
-``` bash
+```bash
 cd kretch-api
 git fetch origin
 git pull
@@ -56,7 +56,7 @@ pm2 restart kretch-api
 
 Note: The deploy script included in this repo depends on other scripts that only exist in my private repos. If you want to deploy this repo, you'll have to create your own script.
 
-``` bash
+```bash
 ./deploy.sh
 ```
 

@@ -97,7 +97,7 @@ export default class Clue {
 			return data;
 		}
 
-		const index = data.rows.findIndex((row) => (row.id === id));
+		const index = data.rows.findIndex((row) => row.id === id);
 		return index > -1 ? data.rows[index] : null;
 	}
 
